@@ -1,4 +1,5 @@
-gsap.registerPlugin(ScrollTrigger);
+function scrollAnimation(){
+    gsap.registerPlugin(ScrollTrigger);
 
 // Using Locomotive Scroll from Locomotive https://github.com/locomotivemtl/locomotive-scroll
 
@@ -28,6 +29,9 @@ ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
 ScrollTrigger.refresh();
 
 
+}
+scrollAnimation()
+
 function cursorEffect(){
     var page1Content=document.querySelector(".page1-content")
 var cursor=document.querySelector("#cursor")
@@ -56,12 +60,10 @@ page1Content.addEventListener("mouseleave",function(){
 cursorEffect()
 
 function page2Animation(){
-    gsap.from("#body h1",{
+    gsap.from(".elem h1",{
         y:120,
-        opacity: 1,
         duration: 1,
         stagger:0.2,
-        duration:1,
         ScrollTrigger:{
             trigger:"#page2",
             scroller:"#main",
@@ -74,3 +76,17 @@ function page2Animation(){
 }
 
 page2Animation()
+
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    loop: true,
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+  });
